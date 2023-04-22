@@ -1,3 +1,4 @@
+import 'package:application1/src/units/theme/theme.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -9,12 +10,12 @@ class MyApp extends StatelessWidget {
 
   // This widget is the root of your application.
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context){
     return MaterialApp(
       title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+      theme:TAppTheme.lightTheme,
+      darkTheme:TAppTheme.darkTheme,
+      themeMode: ThemeMode.system,
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
