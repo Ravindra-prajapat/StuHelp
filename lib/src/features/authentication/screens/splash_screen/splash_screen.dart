@@ -3,6 +3,7 @@ import 'package:application1/src/constants/sizes.dart';
 import 'package:application1/src/constants/text_strings.dart';
 import 'package:flutter/material.dart';
 
+import '../../../../constants/colors.dart';
 import '../on_boarding/on_boarding_screen.dart';
 import '../welcome/welcome_screen.dart';
 
@@ -26,7 +27,9 @@ class _SplashScreenState extends State<SplashScreen> {
     final deviceSize = MediaQuery.of(context).size;
 
     return Scaffold(
+      backgroundColor: tPrimaryColor,
         body: SafeArea(
+          
       child: Stack(
         children: [
           AnimatedOpacity(
@@ -51,7 +54,7 @@ class _SplashScreenState extends State<SplashScreen> {
     Navigator.pushReplacement(
       context,
       MaterialPageRoute(
-        builder: (context) =>  OnBoardingScreen(),
+        builder: (context) =>  WelcomeScreen(),
       ),
     );
   }

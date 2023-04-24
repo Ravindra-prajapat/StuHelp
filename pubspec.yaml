@@ -79,6 +79,8 @@ flutter:
     - assets/images/login_image.png
     - assets/images/on_boarding_images/
     - assets/images/
+    - assets/images/welcome_images/
+    - assets/logo/
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 
