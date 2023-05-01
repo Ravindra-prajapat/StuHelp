@@ -25,9 +25,12 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     final deviceSize = MediaQuery.of(context).size;
+    var mediaQuery = MediaQuery.of(context);
+    var brighgtness = mediaQuery.platformBrightness;
 
+    final isDarkMode = brighgtness == Brightness.dark;
     return Scaffold(
-      backgroundColor: tPrimaryColor,
+      backgroundColor: isDarkMode ? tSecondaryColor : tPrimaryColor,
         body: SafeArea(
           
       child: Stack(
@@ -35,12 +38,12 @@ class _SplashScreenState extends State<SplashScreen> {
           AnimatedOpacity(
             opacity: animate ? 1 : 0,
             duration: const Duration(milliseconds: 1600),
-            child:  Center(
+            
               child: Image(
                 image: AssetImage(tSplashTopIcon),
                 height: deviceSize.height,
               ),
-            ),
+            
           ),
         ],
       ),

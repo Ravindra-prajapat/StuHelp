@@ -3,6 +3,7 @@ import 'package:application1/src/constants/image_strings.dart';
 import 'package:application1/src/constants/sizes.dart';
 import 'package:application1/src/constants/text_strings.dart';
 import 'package:application1/src/features/authentication/screens/login/login_screen.dart';
+import 'package:application1/src/features/authentication/screens/signup/signup_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -25,7 +26,7 @@ class WelcomeScreen extends StatelessWidget {
             Column(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
           Image(
             image: AssetImage(tWelcomeScreenImage),
-            height: height * 0.5,
+            height: height * 0.40,
           ),
           Column(
             children: [
@@ -40,6 +41,7 @@ class WelcomeScreen extends StatelessWidget {
               ),
             ],
           ),
+          //  SizedBox(height: height * 0.05),
           Row(
             children: [
               Expanded(
@@ -55,7 +57,13 @@ class WelcomeScreen extends StatelessWidget {
               SizedBox(width: 10),
               Expanded(
                   child: ElevatedButton(
-                      onPressed: () {}, child: Text(tSignup.toUpperCase()))),
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const SignUpScreen()),
+                        );
+                      }, child: Text(tSignup.toUpperCase()))),
             ],
           )
         ]),

@@ -11,11 +11,15 @@ class LoginScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     final size = MediaQuery.of(context).size;
+    var brighgtness = MediaQuery.of(context).platformBrightness;
+
+    final isDarkMode = brighgtness == Brightness.dark;
 
     return SafeArea(
       child: Scaffold(
-        backgroundColor:  tPrimaryColor,
+        backgroundColor: isDarkMode ? tSecondaryColor : tPrimaryColor,
           body: SingleChildScrollView(
         child: Container(
           padding: const EdgeInsets.all(tDefaultSize),
@@ -24,9 +28,9 @@ class LoginScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment. start, children: [
              LoginHeaderWidget(size: size), // header
 
-            const LoginForm(),  // middel
+             LoginForm(),  // middel
 
-            const LoginFooterWidget(),  // footer
+             LoginFooterWidget(),  // footer
 
 
 
