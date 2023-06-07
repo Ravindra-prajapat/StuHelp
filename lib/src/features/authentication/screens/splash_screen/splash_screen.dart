@@ -29,25 +29,27 @@ class _SplashScreenState extends State<SplashScreen> {
     var brighgtness = mediaQuery.platformBrightness;
 
     final isDarkMode = brighgtness == Brightness.dark;
-    return Scaffold(
-      backgroundColor: isDarkMode ? tSecondaryColor : tPrimaryColor,
-        body: SafeArea(
-          
-      child: Stack(
-        children: [
-          AnimatedOpacity(
-            opacity: animate ? 1 : 0,
-            duration: const Duration(milliseconds: 1600),
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: isDarkMode ? tSecondaryColor : tPrimaryColor,
+          body: SafeArea(
             
-              child: Image(
-                image: AssetImage(tSplashTopIcon),
-                height: deviceSize.height,
-              ),
-            
-          ),
-        ],
-      ),
-    ));
+        child: Stack(
+          children: [
+            AnimatedOpacity(
+              opacity: animate ? 1 : 0,
+              duration: const Duration(milliseconds: 1600),
+              
+                child: Image(
+                  image: AssetImage(tSplashTopIcon),
+                  height: deviceSize.height,
+                ),
+              
+            ),
+          ],
+        ),
+      )),
+    );
   }
 
   Future startAnimation() async {

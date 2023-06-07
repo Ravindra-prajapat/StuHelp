@@ -12,7 +12,7 @@ class TTextTheme {
       headline4: GoogleFonts.poppins(fontSize: 16.0,fontWeight: FontWeight.w600,color: tDarkColor,),
       headline6: GoogleFonts.poppins(fontSize: 14.0,fontWeight: FontWeight.w600,color: tDarkColor,),
       bodyText1: GoogleFonts.poppins(fontSize: 14.0,fontWeight: FontWeight.normal,color: tDarkColor,),
-      bodyText2: GoogleFonts.poppins(fontSize: 140,fontWeight: FontWeight.normal,color: tDarkColor,),
+      bodyText2: GoogleFonts.poppins(fontSize: 14.0,fontWeight: FontWeight.normal,color: tDarkColor,),
       );
   static TextTheme darkTextTheme = TextTheme(
      headline1: GoogleFonts.montserrat(fontSize: 28.0,fontWeight: FontWeight.bold,color: tWhiteColor,),
@@ -21,6 +21,6 @@ class TTextTheme {
       headline4: GoogleFonts.poppins(fontSize: 16.0,fontWeight: FontWeight.w600,color: tWhiteColor,),
       headline6: GoogleFonts.poppins(fontSize: 14.0,fontWeight: FontWeight.w600,color: tWhiteColor,),
       bodyText1: GoogleFonts.poppins(fontSize: 14.0,fontWeight: FontWeight.normal,color: tWhiteColor,),
-      bodyText2: GoogleFonts.poppins(fontSize: 140,fontWeight: FontWeight.normal,color: tWhiteColor,),
+      bodyText2: GoogleFonts.poppins(fontSize: 14.0,fontWeight: FontWeight.normal,color: tWhiteColor,),
   );
 }
