@@ -2,6 +2,7 @@ import 'package:application1/src/constants/colors.dart';
 import 'package:application1/src/constants/image_strings.dart';
 import 'package:application1/src/constants/sizes.dart';
 import 'package:application1/src/constants/text_strings.dart';
+import 'package:application1/src/repository/authentication_repository/authentication_repository.dart';
 import 'package:flutter/material.dart';
 
 class Dashboard extends StatelessWidget {
@@ -31,7 +32,9 @@ class Dashboard extends StatelessWidget {
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10), color: tCardBgColor),
               child: IconButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    AuthenticationRepository.instance.logout();
+                  },
                   icon: const Image(
                     image: AssetImage(tUserProfileImage),
                   )),
@@ -78,18 +81,15 @@ class Dashboard extends StatelessWidget {
                 ),
               ),
 
-
-
               // Categories
               const SizedBox(
                 height: 200,
               ),
               SizedBox(
-                height:150 ,
+                height: 150,
                 child: ListView(
                   shrinkWrap: true,
                   scrollDirection: Axis.horizontal,
-              
                   children: [
                     SizedBox(
                       width: 250,
@@ -115,11 +115,10 @@ class Dashboard extends StatelessWidget {
                         ],
                       ),
                     ),
-
                     const SizedBox(
                       width: 20,
                     ),
-                     SizedBox(
+                    SizedBox(
                       width: 250,
                       height: 150,
                       child: Row(
@@ -143,11 +142,10 @@ class Dashboard extends StatelessWidget {
                         ],
                       ),
                     ),
-
                     const SizedBox(
                       width: 20,
-                    ), 
-                     SizedBox(
+                    ),
+                    SizedBox(
                       width: 250,
                       height: 150,
                       child: Row(
@@ -181,4 +179,3 @@ class Dashboard extends StatelessWidget {
     );
   }
 }
- 
