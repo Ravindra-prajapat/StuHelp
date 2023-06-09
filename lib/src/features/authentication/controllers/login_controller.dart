@@ -8,31 +8,11 @@ import '../../../repository/authentication_repository/authentication_repository.
 class LoginController extends GetxController {
   static LoginController get instance => Get.find();
 
-  //Text Field COntrollers to get data from textFields
   final email = TextEditingController();
   final password = TextEditingController();
 
- // final userRepo = Get.put(UserRepository());
-
   void registerUser(String email, String password) {
     AuthenticationRepository.instance
-        .createuserWithEmailAndPassword(email, password);
-
-    // if (error != null) {
-    //   Get.showSnackbar(GetSnackBar(
-    //     message: error.toString(),
-    //   ));
-    //}
+        .loginWithEmailAndPassword(email, password);
   }
-/*
-  Future<void> createUser(UserModel user) async {
-   await userRepo.createUser(user);
-    phoneAuthentication(user.phoneNo);
-    Get.to(() => const OTPScreen()); 
-  }
-
-  void phoneAuthentication(String phoneNo) {
-    AuthenticationRepository.instance.phoneAuthentication(phoneNo);
-  }
-  */
 }

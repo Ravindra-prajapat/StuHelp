@@ -1,4 +1,5 @@
 import 'package:application1/src/features/core/screens/dashboard/dashboard.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
@@ -18,16 +19,19 @@ class LoginForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(LoginController()); //
+    final email = TextEditingController();
+    final password = TextEditingController();
 
-    final controller = Get.put(LoginController());  //
- 
     return Form(
         child: Container(
       padding: EdgeInsets.symmetric(vertical: tFormHeight - 10),
+      key: _formKey,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           TextFormField(
+            controller: controller.email,
             decoration: const InputDecoration(
                 prefixIcon: Icon(Icons.person_outline_outlined),
                 labelText: tEmail,
@@ -38,6 +42,7 @@ class LoginForm extends StatelessWidget {
             height: tFormHeight - 20,
           ),
           TextFormField(
+            controller: controller.password,
             decoration: const InputDecoration(
               prefixIcon: Icon(Icons.fingerprint),
               labelText: tPassword,
@@ -61,14 +66,35 @@ class LoginForm extends StatelessWidget {
               width: double.infinity,
               child: ElevatedButton(
                   onPressed: () {
+                    // Navigator.push(
+                    //   context,
+                    //   MaterialPageRoute<void>(
+                    //     builder: (BuildContext context) =>
+                    //         const Dashboard(),
+                    //   ),
+                    // );
+                    /*
+                    if (_formKey.currentState!.validate()) {
+                      LoginController.instance.registerUser(
+                          controller.email.text.trim(),
+                          controller.password.text.trim());
+                    }
+                    */
+                    FirebaseAuth.instance
+                        .signInWithEmailAndPassword(
+                            email: controller.email.text.trim(),
+                            password: controller.password.text.trim())
+                        .then((value) {
                       Navigator.push(
                         context,
                         MaterialPageRoute<void>(
-                          builder: (BuildContext context) =>
-                              const Dashboard(),
+                          builder: (BuildContext context) => const Dashboard(),
                         ),
                       );
-                          },
+                    }).onError((error, stackTrace) {
+                      print("Error ${error.toString()}");
+                    });
+                  },
                   child: Text(tLogin.toUpperCase()))),
         ],
       ),
