@@ -75,3 +75,23 @@ const String tDashboardBannerTitle2 = "Java";
 const String tDashboardBannerSubTitle1 = "10 Lessons";
 const String tDashboardButton = "View All";
 const String tDashboardTopCourses = "Top Courses";
+
+// profile screen-text
+const String tProfile = "Profile";
+const String tEditProfile = "Edit Profile";
+const String tLogoutDialogHeading = "Logout";
+const String tProfileHeading = "NIT KKR";
+const String tProfileSubHeading = "superAdmin@nitkkr.com";
+
+// --menu
+const String tMenu5 = "tLogout";
+const String tMenu1 = "Settings";
+const String tMenu4 = "Information";
+const String tMenu2 = "Bilding Details";
+const String tMenu3 = "User Management";
+
+// -- Upadte profile Screen -Text
+
+const String tDelete = "Delete";
+const String tJoined = "Joined";
+const String tJoinedAt = "31 October 2022";

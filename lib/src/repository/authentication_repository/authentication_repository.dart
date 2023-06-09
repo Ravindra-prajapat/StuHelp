@@ -50,4 +50,6 @@ class AuthenticationRepository extends GetxController {
   }
 
   Future<void> logout() async => await _auth.signOut();
+
+  void phoneAuthentication(String phoneNo) {}
 }

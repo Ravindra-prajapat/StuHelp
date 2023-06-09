@@ -1,8 +1,11 @@
 import 'package:application1/src/features/core/screens/dashboard/dashboard.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 
 import '../../../../constants/sizes.dart';
 import '../../../../constants/text_strings.dart';
+import '../../controllers/login_controller.dart';
 import '../forget_password/forget_password_options/forget_password_btn_widget.dart';
 import '../forget_password/forget_password_options/forget_password_model_bottom_sheet.dart';
 
@@ -11,8 +14,13 @@ class LoginForm extends StatelessWidget {
     Key? key,
   }) : super(key: key);
 
+  static final GlobalKey<FormState> _formKey = GlobalKey<FormState>(); //
+
   @override
   Widget build(BuildContext context) {
+
+    final controller = Get.put(LoginController());  //
+ 
     return Form(
         child: Container(
       padding: EdgeInsets.symmetric(vertical: tFormHeight - 10),

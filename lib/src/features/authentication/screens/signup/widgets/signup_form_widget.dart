@@ -1,17 +1,19 @@
 import 'package:application1/src/features/authentication/controllers/signup_controller.dart';
+import 'package:application1/src/features/authentication/screens/forget_password/forget_password_otp/otp_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 
 import '../../../../../constants/sizes.dart';
 import '../../../../../constants/text_strings.dart';
+import '../../../models/user_model.dart';
 
 class SignUpFormWidget extends StatelessWidget {
   const SignUpFormWidget({
     super.key,
   });
 
-    static final GlobalKey<FormState> _formKey =  GlobalKey<FormState>();
+  static final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     final controller = Get.put(SignUpController());
@@ -75,6 +77,19 @@ class SignUpFormWidget extends StatelessWidget {
                             SignUpController.instance.registerUser(
                                 controller.email.text.trim(),
                                 controller.password.text.trim());
+
+                            // Todo Step 3
+                            /*
+                            final user = UserModel(
+                              email: controller.email.text.trim(),
+                              password: controller.password.text.trim(),
+                              fullName: controller.fullName.text.trim(),
+                              phoneNo: controller.phoneNo.text.trim(),
+                            );
+                            SignUpController.instance
+                                .createUser(user);
+                            // Get.to(() => const OTPScreen()); 
+                            */
                           }
                         },
                         child: Text(

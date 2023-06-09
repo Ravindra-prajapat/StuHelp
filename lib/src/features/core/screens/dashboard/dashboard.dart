@@ -2,6 +2,7 @@ import 'package:application1/src/constants/colors.dart';
 import 'package:application1/src/constants/image_strings.dart';
 import 'package:application1/src/constants/sizes.dart';
 import 'package:application1/src/constants/text_strings.dart';
+import 'package:application1/src/features/core/screens/profile/profile_screen.dart';
 import 'package:application1/src/repository/authentication_repository/authentication_repository.dart';
 import 'package:flutter/material.dart';
 
@@ -33,7 +34,11 @@ class Dashboard extends StatelessWidget {
                   borderRadius: BorderRadius.circular(10), color: tCardBgColor),
               child: IconButton(
                   onPressed: () {
-                    AuthenticationRepository.instance.logout();
+                     Navigator.push(
+    context,
+    MaterialPageRoute(builder: (context) => const ProfileScreen()),
+  );
+                    
                   },
                   icon: const Image(
                     image: AssetImage(tUserProfileImage),

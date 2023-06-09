@@ -1,19 +1,16 @@
-import "package:application1/src/repository/authentication_repository/authentication_repository.dart";
-import "package:application1/src/repository/user_repository/user_repository.dart";
-import "package:flutter/material.dart";
-import "package:get/get.dart";
+import 'package:flutter/cupertino.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get_state_manager/src/simple/get_controllers.dart';
 
-import "../models/user_model.dart";
-import "../screens/forget_password/forget_password_otp/otp_screen.dart";
+import '../../../repository/authentication_repository/authentication_repository.dart';
 
-class SignUpController extends GetxController {
-  static SignUpController get instance => Get.find();
+class LoginController extends GetxController {
+  static LoginController get instance => Get.find();
 
   //Text Field COntrollers to get data from textFields
   final email = TextEditingController();
   final password = TextEditingController();
-  final fullName = TextEditingController();
-  final phoneNo = TextEditingController();
 
  // final userRepo = Get.put(UserRepository());
 
