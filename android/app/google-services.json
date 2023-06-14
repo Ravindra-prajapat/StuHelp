@@ -7,9 +7,9 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:814544311800:android:cbcfbf9414b59758b3b20d",
+        "mobilesdk_app_id": "1:814544311800:android:1e2dadbb3f52dff2b3b20d",
         "android_client_info": {
-          "package_name": "com.example.application1"
+          "package_name": "com.example.application"
         }
       },
       "oauth_client": [
@@ -29,6 +29,57 @@
             {
               "client_id": "814544311800-3dc0uufnrf8nanv4jle9flu4votsf899.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "814544311800-ckfiio4taar9qlbqb5k8isdkuftiqlnf.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.application1"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:814544311800:android:cbcfbf9414b59758b3b20d",
+        "android_client_info": {
+          "package_name": "com.example.application1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "814544311800-75i4m2idova3m6el4q4pntocjb50mnei.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.application1",
+            "certificate_hash": "513d43c7353d87d634de7ac499c5f00a2e1cbc15"
+          }
+        },
+        {
+          "client_id": "814544311800-3dc0uufnrf8nanv4jle9flu4votsf899.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAfn40LTl5Foi_eOjLEMnKDVDDJGi55l20"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "814544311800-3dc0uufnrf8nanv4jle9flu4votsf899.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "814544311800-ckfiio4taar9qlbqb5k8isdkuftiqlnf.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.application1"
+              }
             }
           ]
         }

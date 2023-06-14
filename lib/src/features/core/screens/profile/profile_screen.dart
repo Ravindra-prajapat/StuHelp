@@ -1,5 +1,6 @@
 import "package:application1/src/constants/image_strings.dart";
 import "package:application1/src/constants/sizes.dart";
+import "package:application1/src/features/core/screens/dashboard/footer_navigation.dart";
 import "package:application1/src/features/core/screens/profile/update_profile_screen.dart";
 import "package:application1/src/features/core/screens/profile/widgets/profile_menu.dart";
 import "package:flutter/material.dart";
@@ -17,10 +18,12 @@ class ProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var isDark = MediaQuery.of(context).platformBrightness == Brightness.dark;
+    
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
-            onPressed: ()  => Get.back(), icon: const Icon(LineAwesomeIcons.angle_left)),
+            onPressed: () => Get.back(),
+            icon: const Icon(LineAwesomeIcons.angle_left)),
         title: Text(tProfile, style: Theme.of(context).textTheme.headline4),
         actions: [
           IconButton(
@@ -51,7 +54,7 @@ class ProfileScreen extends StatelessWidget {
                         height: 35,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(100),
-                          color: Colors.yellow,
+                          color: Colors.grey.withOpacity(0.8),
                         ),
                         child: const Icon(
                           LineAwesomeIcons.alternate_pencil,
@@ -89,7 +92,7 @@ class ProfileScreen extends StatelessWidget {
                       );
                     },
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.yellow,
+                      backgroundColor: Colors.grey.withOpacity(0.6),
                       side: BorderSide.none,
                       shape: const StadiumBorder(),
                     ),

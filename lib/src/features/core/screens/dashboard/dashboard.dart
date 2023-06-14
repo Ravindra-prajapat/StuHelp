@@ -2,50 +2,58 @@ import 'package:application1/src/constants/colors.dart';
 import 'package:application1/src/constants/image_strings.dart';
 import 'package:application1/src/constants/sizes.dart';
 import 'package:application1/src/constants/text_strings.dart';
+import 'package:application1/src/features/core/screens/dashboard/assignments.dart';
+import 'package:application1/src/features/core/screens/dashboard/previous_year_paper.dart';
 import 'package:application1/src/features/core/screens/profile/profile_screen.dart';
 import 'package:application1/src/repository/authentication_repository/authentication_repository.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
-class Dashboard extends StatelessWidget {
+class Dashboard extends StatefulWidget {
   const Dashboard({super.key});
 
+  @override
+  State<Dashboard> createState() => _DashboardState();
+}
+
+class _DashboardState extends State<Dashboard> {
   @override
   Widget build(BuildContext context) {
     final txtTheme = Theme.of(context).textTheme;
 
     return SafeArea(
       child: Scaffold(
-        appBar: AppBar(
-          leading: const Icon(
-            Icons.menu,
-            color: Colors.black,
-          ),
-          title: Text(
-            tAppName,
-            style: Theme.of(context).textTheme.headline4,
-          ),
-          centerTitle: true,
-          elevation: 0,
-          backgroundColor: Colors.transparent,
-          actions: [
-            Container(
-              margin: const EdgeInsets.only(right: 20, top: 7),
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10), color: tCardBgColor),
-              child: IconButton(
-                  onPressed: () {
-                     Navigator.push(
-    context,
-    MaterialPageRoute(builder: (context) => const ProfileScreen()),
-  );
-                    
-                  },
-                  icon: const Image(
-                    image: AssetImage(tUserProfileImage),
-                  )),
-            )
-          ],
-        ),
+        // appBar: AppBar(
+        //   leading: const Icon(
+        //     Icons.menu,
+        //     color: Colors.black,
+        //   ),
+        //   title: Text(
+        //     tAppName,
+        //     style: Theme.of(context).textTheme.headline4,
+        //   ),
+        //   centerTitle: true,
+        //   elevation: 0,
+        //   backgroundColor: Colors.transparent,
+        //   actions: [
+        //     Container(
+        //       margin: const EdgeInsets.only(right: 20, top: 7),
+        //       decoration: BoxDecoration(
+        //           borderRadius: BorderRadius.circular(10), color: tCardBgColor),
+        //       child: IconButton(
+        //           onPressed: () {
+        //             Navigator.push(
+        //               context,
+        //               MaterialPageRoute(
+        //                   builder: (context) => const ProfileScreen()),
+        //             );
+        //           },
+        //           icon: const Image(
+        //             image: AssetImage(tUserProfileImage),
+        //           )),
+        //     )
+        //   ],
+        // ),
         body: SingleChildScrollView(
           child: Container(
             padding: const EdgeInsets.all(tDashboardPadding),

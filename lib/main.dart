@@ -1,13 +1,16 @@
-import 'package:application1/firebase_options.dart';
-import 'package:application1/src/features/authentication/screens/splash_screen/splash_screen.dart';
-import 'package:application1/src/repository/authentication_repository/authentication_repository.dart';
-import 'package:application1/src/units/theme/theme.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-void main() {
+import 'package:application1/firebase_options.dart';
+import 'package:application1/src/features/authentication/screens/splash_screen/splash_screen.dart';
+import 'package:application1/src/repository/authentication_repository/authentication_repository.dart';
+import 'package:application1/src/units/theme/theme.dart';
+
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  
   Firebase.initializeApp(options:DefaultFirebaseOptions.currentPlatform).then((value)=>Get.put(AuthenticationRepository()));
   runApp(const MyApp());
 }

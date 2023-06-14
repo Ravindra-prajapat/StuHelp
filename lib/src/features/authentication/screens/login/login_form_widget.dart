@@ -1,4 +1,5 @@
 import 'package:application1/src/features/core/screens/dashboard/dashboard.dart';
+import 'package:application1/src/features/core/screens/dashboard/footer_navigation.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -85,10 +86,12 @@ class LoginForm extends StatelessWidget {
                             email: controller.email.text.trim(),
                             password: controller.password.text.trim())
                         .then((value) {
+                      print("user value  $value");
                       Navigator.push(
                         context,
                         MaterialPageRoute<void>(
-                          builder: (BuildContext context) => const Dashboard(),
+                          builder: (BuildContext context) =>
+                              const FooterNavigation(),
                         ),
                       );
                     }).onError((error, stackTrace) {
