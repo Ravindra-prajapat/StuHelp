@@ -15,7 +15,7 @@ class OnBoardingPageWidget extends StatelessWidget {
   Widget build(BuildContext context) {
      final deviceSize = MediaQuery.of(context).size;
     return Container(
-      padding:  EdgeInsets.all(tDefaultSize),
+      padding:  const EdgeInsets.all(tDefaultSize),
       color: model.bgColor,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -25,7 +25,7 @@ class OnBoardingPageWidget extends StatelessWidget {
             children: [
               Text(
                model.title,
-                style: Theme.of(context).textTheme.headline4,
+                style: Theme.of(context).textTheme.headlineMedium,
               ),
                Text(
                 model.subTitle,
@@ -35,7 +35,7 @@ class OnBoardingPageWidget extends StatelessWidget {
           ),
           Text(
             model.counterText,
-            style: Theme.of(context).textTheme.headline6,
+            style: Theme.of(context).textTheme.titleLarge,
           ),
           const SizedBox(
             height: 80.0,

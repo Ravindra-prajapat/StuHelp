@@ -28,11 +28,11 @@ class SignUpScreen extends StatelessWidget {
                   image: tWelcomeScreenImage,
                   title: tSignUpTitle,
                   subTitle: tSignUpSubTitle),
-              SignUpFormWidget(),
+              const SignUpFormWidget(),
           
               Column(
                 children: [
-                  Text("OR",style: Theme.of(context).textTheme.bodyText1,),
+                  Text("OR",style: Theme.of(context).textTheme.bodyLarge,),
                    const SizedBox(height: tFormHeight-20,),
                   SizedBox(
                     width: double.infinity,
@@ -47,7 +47,7 @@ class SignUpScreen extends StatelessWidget {
                   ),
                   TextButton(onPressed: (){}, child: Text.rich(
                     TextSpan(children: [
-                      TextSpan(text: tAlreadyHaveAnAccount,style: Theme.of(context).textTheme.bodyText1),
+                      TextSpan(text: tAlreadyHaveAnAccount,style: Theme.of(context).textTheme.bodyLarge),
                       TextSpan(text: tLogin.toUpperCase()),
                     ])
                   ),),

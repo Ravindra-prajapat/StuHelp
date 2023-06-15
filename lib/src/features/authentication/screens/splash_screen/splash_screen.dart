@@ -1,10 +1,7 @@
 import 'package:application1/src/constants/image_strings.dart';
-import 'package:application1/src/constants/sizes.dart';
-import 'package:application1/src/constants/text_strings.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../constants/colors.dart';
-import '../on_boarding/on_boarding_screen.dart';
 import '../welcome/welcome_screen.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -41,7 +38,7 @@ class _SplashScreenState extends State<SplashScreen> {
               duration: const Duration(milliseconds: 1600),
               
                 child: Image(
-                  image: AssetImage(tSplashTopIcon),
+                  image: const AssetImage(tSplashTopIcon),
                   height: deviceSize.height,
                 ),
               
@@ -59,7 +56,7 @@ class _SplashScreenState extends State<SplashScreen> {
     Navigator.pushReplacement(
       context,
       MaterialPageRoute(
-        builder: (context) =>  WelcomeScreen(),
+        builder: (context) =>  const WelcomeScreen(),
       ),
     );
   }

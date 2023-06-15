@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import '../../../constants/colors.dart';
-import '../../../constants/text_strings.dart';
 
 class TTextFormDieldTheme {
   TTextFormDieldTheme._();
@@ -9,18 +8,18 @@ class TTextFormDieldTheme {
   static InputDecorationTheme lightInputDecorationTheme =  InputDecorationTheme(
       border: OutlineInputBorder(borderRadius: BorderRadius.circular(100)),
       prefixIconColor: tSecondaryColor,
-      floatingLabelStyle: TextStyle(color: tSecondaryColor),
+      floatingLabelStyle: const TextStyle(color: tSecondaryColor),
       focusedBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(100),
-        borderSide: BorderSide(width: 2.0, color: tSecondaryColor),
+        borderSide: const BorderSide(width: 2.0, color: tSecondaryColor),
       ));
 
       static InputDecorationTheme darkInputDecorationTheme =  InputDecorationTheme(
        border: OutlineInputBorder(borderRadius: BorderRadius.circular(100)),
       prefixIconColor: tPrimaryColor,
-      floatingLabelStyle: TextStyle(color: tPrimaryColor),
+      floatingLabelStyle: const TextStyle(color: tPrimaryColor),
       focusedBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(100),
-        borderSide: BorderSide(width: 2.0, color: tPrimaryColor),
+        borderSide: const BorderSide(width: 2.0, color: tPrimaryColor),
       ));
 }

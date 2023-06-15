@@ -1,11 +1,9 @@
 import "package:application1/src/constants/image_strings.dart";
 import "package:application1/src/constants/sizes.dart";
-import "package:application1/src/features/core/screens/dashboard/footer_navigation.dart";
 import "package:application1/src/features/core/screens/profile/update_profile_screen.dart";
 import "package:application1/src/features/core/screens/profile/widgets/profile_menu.dart";
 import "package:flutter/material.dart";
 import "package:get/get.dart";
-import "package:get/get_core/src/get_main.dart";
 import "package:line_awesome_flutter/line_awesome_flutter.dart";
 
 import "../../../../constants/colors.dart";
@@ -24,7 +22,7 @@ class ProfileScreen extends StatelessWidget {
         leading: IconButton(
             onPressed: () => Get.back(),
             icon: const Icon(LineAwesomeIcons.angle_left)),
-        title: Text(tProfile, style: Theme.of(context).textTheme.headline4),
+        title: Text(tProfile, style: Theme.of(context).textTheme.headlineMedium),
         actions: [
           IconButton(
               onPressed: () {},
@@ -70,11 +68,11 @@ class ProfileScreen extends StatelessWidget {
                 ),
                 Text(
                   tProfileHeading,
-                  style: Theme.of(context).textTheme.headline4,
+                  style: Theme.of(context).textTheme.headlineMedium,
                 ),
                 Text(
                   tProfileSubHeading,
-                  style: Theme.of(context).textTheme.bodyText2,
+                  style: Theme.of(context).textTheme.bodyMedium,
                 ),
 
                 const SizedBox(

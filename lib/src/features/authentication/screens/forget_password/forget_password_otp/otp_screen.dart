@@ -13,7 +13,7 @@ class OTPScreen extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         body: Container(
-          padding: EdgeInsets.all(tDefaultSize),
+          padding: const EdgeInsets.all(tDefaultSize),
           child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
             Text(
               tOtpTitle,
@@ -24,7 +24,7 @@ class OTPScreen extends StatelessWidget {
             ),
             Text(
               tOtpSubTitle.toUpperCase(),
-              style: Theme.of(context).textTheme.headline6,
+              style: Theme.of(context).textTheme.titleLarge,
             ),
             const SizedBox(
               height: 40.0,

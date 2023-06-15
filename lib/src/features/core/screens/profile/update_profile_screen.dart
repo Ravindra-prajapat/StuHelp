@@ -3,10 +3,7 @@ import 'package:application1/src/constants/colors.dart';
 import 'package:application1/src/constants/image_strings.dart';
 import 'package:application1/src/constants/sizes.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 
 import '../../../../constants/text_strings.dart';
@@ -21,7 +18,7 @@ class UpdateProfileScreen extends StatelessWidget {
       appBar: AppBar(
         leading: IconButton(
             onPressed: () => Get.back(), icon: const Icon(LineAwesomeIcons.angle_left)),
-        title: Text(tProfile, style: Theme.of(context).textTheme.headline4),
+        title: Text(tProfile, style: Theme.of(context).textTheme.headlineMedium),
         actions: [
           IconButton(
               onPressed: () {},
@@ -105,12 +102,12 @@ class UpdateProfileScreen extends StatelessWidget {
                   ),
                 ),
 
-                SizedBox(height: tFormHeight,),
+                const SizedBox(height: tFormHeight,),
 
                 SizedBox(
                   width :double.infinity,
                   child: ElevatedButton(
-                    onPressed: ()=>Get.to(()=>UpdateProfileScreen()),
+                    onPressed: ()=>Get.to(()=>const UpdateProfileScreen()),
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.yellow,side :BorderSide.none,  
                       shape: const StadiumBorder()),

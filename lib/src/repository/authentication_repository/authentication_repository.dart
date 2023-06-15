@@ -3,7 +3,6 @@ import "package:application1/src/features/core/screens/dashboard/dashboard.dart"
 import "package:application1/src/features/core/screens/dashboard/footer_navigation.dart";
 import "package:application1/src/repository/authentication_repository/exceptions/signup_email_password_failure.dart";
 import "package:firebase_auth/firebase_auth.dart";
-import "package:flutter/material.dart";
 import "package:get/get.dart";
 
 class AuthenticationRepository extends GetxController {
@@ -31,7 +30,7 @@ class AuthenticationRepository extends GetxController {
           email: email, password: password);
       firebaseUser.value != null
           ? Get.offAll(() => const FooterNavigation())
-          : Get.to(() => WelcomeScreen());
+          : Get.to(() => const WelcomeScreen());
     } on FirebaseAuthException catch (e) {
       final ex = SignUpWithEmailAndPasswordFailure.code(e.code);
       print('FIREBASE AUTH EXCEPTION - ${ex.message}');
@@ -49,7 +48,6 @@ class AuthenticationRepository extends GetxController {
       // now added
        Get.offAll(() => const Dashboard());
 
-    } on FirebaseAuthException catch (e) {
     } catch (_) {}
   }
 

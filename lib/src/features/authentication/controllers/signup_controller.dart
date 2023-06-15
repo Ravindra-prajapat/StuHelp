@@ -1,10 +1,7 @@
 import "package:application1/src/repository/authentication_repository/authentication_repository.dart";
-import "package:application1/src/repository/user_repository/user_repository.dart";
 import "package:flutter/material.dart";
 import "package:get/get.dart";
 
-import "../models/user_model.dart";
-import "../screens/forget_password/forget_password_otp/otp_screen.dart";
 
 class SignUpController extends GetxController {
   static SignUpController get instance => Get.find();

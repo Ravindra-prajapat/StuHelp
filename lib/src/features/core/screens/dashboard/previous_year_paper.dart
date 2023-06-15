@@ -37,13 +37,13 @@ class _PreviousYearPapersState extends State<PreviousYearPapers> {
           Center(
               child: Text(
             "Previous year papers",
-            style: Theme.of(context).textTheme.headline3,
+            style: Theme.of(context).textTheme.displaySmall,
           )),
-          SizedBox(
+          const SizedBox(
             height: 40,
           ),
           Container(
-            padding: EdgeInsets.only(left: 20, right: 20),
+            padding: const EdgeInsets.only(left: 20, right: 20),
             child: Center(
               child: StreamBuilder<QuerySnapshot>(
                 stream: FirebaseFirestore.instance
@@ -80,6 +80,10 @@ class _PreviousYearPapersState extends State<PreviousYearPapers> {
                         collageId = snapshot.data?.docs
                             .firstWhere((doc) => doc.get('Name') == value)
                             .id;
+                            
+                        collageName = snapshot.data?.docs
+                            .firstWhere((doc) => doc.get('Name') == value);
+
                         debugPrint('collage ID: $collageId');
                         debugPrint('collage branch: $value');
                         // Selected value will be stored
@@ -139,6 +143,9 @@ class _PreviousYearPapersState extends State<PreviousYearPapers> {
                                     .firstWhere(
                                         (doc) => doc.get('Name') == value)
                                     .id;
+
+                                    branchName = snapshot.data?.docs
+                            .firstWhere((doc) => doc.get('Name') == value);
                                 debugPrint('Branch ID: $branchId');
                                 debugPrint('Selected branch: $value');
                                 // Selected value will be stored
@@ -153,7 +160,7 @@ class _PreviousYearPapersState extends State<PreviousYearPapers> {
                         },
                       )
                     : Container(
-                        child: Text('Processing...'),
+                        child: const Text('Processing...'),
                       )),
           ),
           const SizedBox(
@@ -202,6 +209,8 @@ class _PreviousYearPapersState extends State<PreviousYearPapers> {
                                     .firstWhere(
                                         (doc) => doc.get('Name') == value)
                                     .id;
+                                    semesterName = snapshot.data?.docs
+                            .firstWhere((doc) => doc.get('Name') == value);
                                 debugPrint('Branch ID: $semesterId');
                                 debugPrint('Selected branch: $value');
                                 // Selected value will be stored
@@ -216,7 +225,7 @@ class _PreviousYearPapersState extends State<PreviousYearPapers> {
                         },
                       )
                     : Container(
-                        child: Text('Processing...'),
+                        child: const Text('Processing...'),
                       )),
           ),
           const SizedBox(
@@ -267,6 +276,8 @@ class _PreviousYearPapersState extends State<PreviousYearPapers> {
                                     .firstWhere(
                                         (doc) => doc.get('Name') == value)
                                     .id;
+                                    subjectName = snapshot.data?.docs
+                            .firstWhere((doc) => doc.get('Name') == value);
                                 debugPrint('Branch ID: $subjectId');
                                 debugPrint('Selected branch: $value');
                                 // Selected value will be stored
@@ -281,7 +292,7 @@ class _PreviousYearPapersState extends State<PreviousYearPapers> {
                         },
                       )
                     : Container(
-                        child: Text('Processing...'),
+                        child: const Text('Processing...'),
                       )),
           ),
           const SizedBox(
@@ -334,6 +345,8 @@ class _PreviousYearPapersState extends State<PreviousYearPapers> {
                                     .firstWhere(
                                         (doc) => doc.get('Name') == value)
                                     .id;
+                                    examName = snapshot.data?.docs
+                            .firstWhere((doc) => doc.get('Name') == value);
                                 debugPrint('Branch ID: $examId');
                                 debugPrint('Selected branch: $value');
                                 // Selected value will be stored
@@ -348,12 +361,12 @@ class _PreviousYearPapersState extends State<PreviousYearPapers> {
                         },
                       )
                     : Container(
-                        child: Text('Processing...'),
+                        child: const Text('Processing...'),
                       )),
           ),
-          SizedBox(height: 80),
+          const SizedBox(height: 80),
           Container(
-            padding: EdgeInsets.only(left: 30, right: 30),
+            padding: const EdgeInsets.only(left: 30, right: 30),
             width: double.infinity,
             child: ElevatedButton(
               style: ElevatedButton.styleFrom(
@@ -364,12 +377,18 @@ class _PreviousYearPapersState extends State<PreviousYearPapers> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                      builder: (context) =>  UploadPdf(
+                      builder: (context) => UploadPdf(
                           collageId: collageId,
                           branchId: branchId,
                           semesterId: semesterId,
                           subjectId: subjectId,
-                          examId: examId)),
+                          examId: examId,
+                          /*collageName: collageName,
+                          branchName: branchName,
+                          semesterName: semesterName,
+                          subjectName: subjectName,
+                          examName: examName*/
+                          )),
                 );
               },
             ),

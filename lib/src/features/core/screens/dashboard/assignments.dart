@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 class Assignments extends StatelessWidget {
+  
   const Assignments({super.key});
 
   @override

@@ -17,17 +17,17 @@ class LoginHeaderWidget extends StatelessWidget {
      crossAxisAlignment: CrossAxisAlignment.start,
      children: [
        Image(
-         image: AssetImage(tWelcomeScreenImage),
+         image: const AssetImage(tWelcomeScreenImage),
          height: size.height * 0.2,
        ),
        Text(
          tLoginTitle,
-         style: Theme.of(context).textTheme.headline1,
+         style: Theme.of(context).textTheme.displayLarge,
          
        ),
        Text(
          tLoginSubTitle,
-         style: Theme.of(context).textTheme.bodyText1 ,
+         style: Theme.of(context).textTheme.bodyLarge ,
        ),
      ],
             );

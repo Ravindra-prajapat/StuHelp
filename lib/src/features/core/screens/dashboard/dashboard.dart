@@ -1,13 +1,7 @@
 import 'package:application1/src/constants/colors.dart';
-import 'package:application1/src/constants/image_strings.dart';
 import 'package:application1/src/constants/sizes.dart';
 import 'package:application1/src/constants/text_strings.dart';
-import 'package:application1/src/features/core/screens/dashboard/assignments.dart';
-import 'package:application1/src/features/core/screens/dashboard/previous_year_paper.dart';
-import 'package:application1/src/features/core/screens/profile/profile_screen.dart';
-import 'package:application1/src/repository/authentication_repository/authentication_repository.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 class Dashboard extends StatefulWidget {
   const Dashboard({super.key});
@@ -61,11 +55,11 @@ class _DashboardState extends State<Dashboard> {
                 Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
               Text(
                 tDashboardTitle,
-                style: txtTheme.bodyText2,
+                style: txtTheme.bodyMedium,
               ),
               Text(
                 tDashboardHeading,
-                style: txtTheme.headline2,
+                style: txtTheme.displayMedium,
               ),
               const SizedBox(
                 height: tDashboardPadding,
@@ -83,7 +77,7 @@ class _DashboardState extends State<Dashboard> {
                   children: [
                     Text(
                       tDashboardSearch,
-                      style: txtTheme.headline2
+                      style: txtTheme.displayMedium
                           ?.apply(color: Colors.grey.withOpacity(0.5)),
                     ),
                     const Icon(
@@ -118,7 +112,7 @@ class _DashboardState extends State<Dashboard> {
                             child: Center(
                               child: Text(
                                 "Previous Year Paper",
-                                style: txtTheme.headline1?.apply(
+                                style: txtTheme.displayLarge?.apply(
                                   color: Colors.white,
                                 ),
                                 textAlign: TextAlign.center,
@@ -145,7 +139,7 @@ class _DashboardState extends State<Dashboard> {
                             child: Center(
                               child: Text(
                                 "Previous Year Paper",
-                                style: txtTheme.headline1?.apply(
+                                style: txtTheme.displayLarge?.apply(
                                   color: Colors.white,
                                 ),
                                 textAlign: TextAlign.center,
@@ -172,7 +166,7 @@ class _DashboardState extends State<Dashboard> {
                             child: Center(
                               child: Text(
                                 "Previous Year Paper",
-                                style: txtTheme.headline1?.apply(
+                                style: txtTheme.displayLarge?.apply(
                                   color: Colors.white,
                                 ),
                                 textAlign: TextAlign.center,

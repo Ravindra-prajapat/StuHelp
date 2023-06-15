@@ -5,7 +5,6 @@ import 'package:application1/src/constants/text_strings.dart';
 import 'package:application1/src/features/authentication/screens/login/login_screen.dart';
 import 'package:application1/src/features/authentication/screens/signup/signup_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({super.key});
@@ -22,22 +21,22 @@ class WelcomeScreen extends StatelessWidget {
       child: Scaffold(
         backgroundColor: isDarkMode ? tSecondaryColor : tPrimaryColor,
         body: Container(
-          padding: EdgeInsets.all(tDefaultSize),
+          padding: const EdgeInsets.all(tDefaultSize),
           child:
               Column(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
             Image(
-              image: AssetImage(tWelcomeScreenImage),
+              image: const AssetImage(tWelcomeScreenImage),
               height: height * 0.40,
             ),
             Column(
               children: [
                 Text(
                   tWelcomeTitle,
-                  style: Theme.of(context).textTheme.headline1,
+                  style: Theme.of(context).textTheme.displayLarge,
                 ),
                 Text(
                   tWelcomeSubTitle,
-                  style: Theme.of(context).textTheme.bodyText1,
+                  style: Theme.of(context).textTheme.bodyLarge,
                   textAlign: TextAlign.center,
                 ),
               ],
@@ -55,7 +54,7 @@ class WelcomeScreen extends StatelessWidget {
                           );
                         },
                         child: Text(tLogin.toUpperCase()))),
-                SizedBox(width: 10),
+                const SizedBox(width: 10),
                 Expanded(
                     child: ElevatedButton(
                         onPressed: () {
