@@ -38,6 +38,10 @@ dependencies:
   cupertino_icons: ^1.0.2
   google_fonts: 4.0.4
   #flutter_native_splash: ^2.2.18
+  provider: ^6.0.5
+  fluttertoast: ^8.2.2
+  image_picker: ^0.8.9
+  flutter_svg: ^2.0.7
   liquid_swipe: ^3.1.0
   smooth_page_indicator: ^1.1.0
   get: ^4.6.5

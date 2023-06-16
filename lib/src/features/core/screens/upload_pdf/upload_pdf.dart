@@ -113,7 +113,6 @@ class View extends StatelessWidget {
 
 import 'dart:io';
 import 'dart:math';
-import 'dart:typed_data';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter_document_picker/flutter_document_picker.dart';
@@ -169,7 +168,7 @@ class _UploadPdfState extends State<UploadPdf> {
                   "Collages/${widget.collageId}/Branches/${widget.branchId}/Semester/${widget.semesterId}/Subjects/${widget.subjectId}/Exams/${widget.examId}/ExamPaper")
               .doc()
               .set(
-                  {'fileUrl': url, 'num': "ExamPaper-" + number.toString()});
+                  {'fileUrl': url, 'num': "ExamPaper-$number"});
 
 
     print("done..!");
@@ -218,16 +217,16 @@ class _UploadPdfState extends State<UploadPdf> {
                       },
                       child: Container(
                         height: 150,
-                        padding: EdgeInsets.all(20),
+                        padding: const EdgeInsets.all(20),
                         child: Card(
                           elevation: 10,
-                            child: Center(child: Text(x["num"],style: Theme.of(context).textTheme.headline3,)),
+                            child: Center(child: Text(x["num"],style: Theme.of(context).textTheme.displaySmall,)),
                           ),
                         ),
                     );
                   });
             }
-            return Center(
+            return const Center(
               child: CircularProgressIndicator(),
             );
           },
@@ -239,13 +238,13 @@ class _UploadPdfState extends State<UploadPdf> {
 class View extends StatelessWidget {
   PdfViewerController? _pdfViewerController;
   final url;
-  View({this.url});
+  View({super.key, this.url});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("PDF View"),
+        title: const Text("PDF View"),
       ),
       body: SfPdfViewer.network(
         url,

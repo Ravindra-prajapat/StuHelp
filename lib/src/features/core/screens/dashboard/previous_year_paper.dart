@@ -58,8 +58,8 @@ class _PreviousYearPapersState extends State<PreviousYearPapers> {
                   // Set this value for default,
                   // setDefault will change if an item was selected
                   // First item from the List will be displayed
-
-                  collageName = snapshot.data?.docs[0].get('Name');
+              collageName = snapshot.data!.docs.isNotEmpty ? snapshot.data?.docs[0].get('Name') : '';
+                //  collageName = snapshot.data?.docs[0].get('Name');
                   if (setDefaultMake) {
                     debugPrint('setDefault make: $collageName');
                   }
@@ -121,7 +121,9 @@ class _PreviousYearPapersState extends State<PreviousYearPapers> {
                           // Set this value for default,
                           // setDefault will change if an item was selected
                           // First item from the List will be displayed
-                          branchName = snapshot.data?.docs[0].get('Name');
+
+                          branchName = snapshot.data!.docs.isNotEmpty ? snapshot.data?.docs[0].get('Name') : '';
+                         // branchName = snapshot.data?.docs[0].get('Name');
                           if (setDefaultMake) {
                             debugPrint('setDefault make: $branchName');
                           }
@@ -187,7 +189,8 @@ class _PreviousYearPapersState extends State<PreviousYearPapers> {
                           // Set this value for default,
                           // setDefault will change if an item was selected
                           // First item from the List will be displayed
-                          semesterName = snapshot.data?.docs[0].get('Name');
+                          semesterName = snapshot.data!.docs.isNotEmpty ? snapshot.data?.docs[0].get('Name') : '';
+                          //semesterName = snapshot.data?.docs[0].get('Name');
                           if (setDefaultMake) {
                             debugPrint('setDefault make: $semesterName');
                           }
@@ -254,7 +257,8 @@ class _PreviousYearPapersState extends State<PreviousYearPapers> {
                           // Set this value for default,
                           // setDefault will change if an item was selected
                           // First item from the List will be displayed
-                          subjectName = snapshot.data?.docs[0].get('Name');
+                          subjectName = snapshot.data!.docs.isNotEmpty ? snapshot.data?.docs[0].get('Name') : '';
+                         // subjectName = snapshot.data?.docs[0].get('Name');
                           if (setDefaultMake) {
                             debugPrint('setDefault make: $subjectName');
                           }
@@ -323,7 +327,8 @@ class _PreviousYearPapersState extends State<PreviousYearPapers> {
                           // Set this value for default,
                           // setDefault will change if an item was selected
                           // First item from the List will be displayed
-                          examName = snapshot.data?.docs[0].get('Name');
+                          examName = snapshot.data!.docs.isNotEmpty ? snapshot.data?.docs[0].get('Name') : '';
+                         // examName = snapshot.data?.docs[0].get('Name');
                           if (setDefaultMake) {
                             debugPrint('setDefault make: $examName');
                           }
@@ -374,23 +379,39 @@ class _PreviousYearPapersState extends State<PreviousYearPapers> {
               ),
               child: const Text('Open route'),
               onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => UploadPdf(
-                          collageId: collageId,
-                          branchId: branchId,
-                          semesterId: semesterId,
-                          subjectId: subjectId,
-                          examId: examId,
-                          /*collageName: collageName,
-                          branchName: branchName,
-                          semesterName: semesterName,
-                          subjectName: subjectName,
-                          examName: examName*/
-                          )),
-                );
+  if (collageId != null && branchId != null && semesterId != null && branchId != null && examId != null) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => UploadPdf(
+          collageId: collageId,
+          branchId: branchId,
+          semesterId: semesterId,
+          subjectId: subjectId,
+          examId: examId,
+        ),
+      ),
+    );
+  } else {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text('Error'),
+          content: Text('Please select all required fields.'),
+          actions: <Widget>[
+            TextButton(
+              child: Text('OK'),
+              onPressed: () {
+                Navigator.of(context).pop();
               },
+            ),
+          ],
+        );
+      },
+    );
+  }
+},
             ),
           ),
         ],
