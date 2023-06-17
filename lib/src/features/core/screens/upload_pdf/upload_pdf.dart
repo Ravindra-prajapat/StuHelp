@@ -181,7 +181,8 @@ class _UploadPdfState extends State<UploadPdf> {
   Widget build(BuildContext context) {
     return  Scaffold(
         appBar: AppBar(
-          backgroundColor: Colors.blue,
+          elevation: 0,
+          backgroundColor: const Color.fromARGB(255, 254, 255, 255),
           title: const Text("FlutterFire PDF"),
         ),
         floatingActionButton: FloatingActionButton(

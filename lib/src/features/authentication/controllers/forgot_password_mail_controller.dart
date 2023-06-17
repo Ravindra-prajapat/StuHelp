@@ -3,14 +3,13 @@ import 'package:get/get.dart';
 
 import '../../../repository/authentication_repository/authentication_repository.dart';
 
-class LoginController extends GetxController {
-  static LoginController get instance => Get.find();
+class ForgotPasswordController extends GetxController {
+  static ForgotPasswordController get instance => Get.find();
 
   final email = TextEditingController();
-  final password = TextEditingController();
 
-  void registerUser() {
+  void reset() {
     AuthenticationRepository.instance
-        .loginWithEmailAndPassword(email.text.trim(), password.text.trim());
+        .resetPassword(email.text.trim());
   }
 }

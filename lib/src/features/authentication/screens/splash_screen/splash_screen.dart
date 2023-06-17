@@ -1,4 +1,5 @@
 import 'package:application1/src/constants/image_strings.dart';
+import 'package:application1/src/features/authentication/services/spalsh_services.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../constants/colors.dart';
@@ -14,9 +15,13 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   bool animate = false;
 
+  //SplashServices services = SplashServices();
+
   @override
   void initState() {
+    super.initState();
     startAnimation();
+    //services.isLogin(context);
   }
 
   @override
@@ -28,24 +33,21 @@ class _SplashScreenState extends State<SplashScreen> {
     final isDarkMode = brighgtness == Brightness.dark;
     return SafeArea(
       child: Scaffold(
-        backgroundColor: isDarkMode ? tSecondaryColor : tPrimaryColor,
+          backgroundColor: isDarkMode ? tSecondaryColor : tPrimaryColor,
           body: SafeArea(
-            
-        child: Stack(
-          children: [
-            AnimatedOpacity(
-              opacity: animate ? 1 : 0,
-              duration: const Duration(milliseconds: 1600),
-              
-                child: Image(
-                  image: const AssetImage(tSplashTopIcon),
-                  height: deviceSize.height,
+            child: Stack(
+              children: [
+                AnimatedOpacity(
+                  opacity: animate ? 1 : 0,
+                  duration: const Duration(milliseconds: 1600),
+                  child: Image(
+                    image: const AssetImage(tSplashTopIcon),
+                    height: deviceSize.height,
+                  ),
                 ),
-              
+              ],
             ),
-          ],
-        ),
-      )),
+          )),
     );
   }
 
@@ -56,7 +58,7 @@ class _SplashScreenState extends State<SplashScreen> {
     Navigator.pushReplacement(
       context,
       MaterialPageRoute(
-        builder: (context) =>  const WelcomeScreen(),
+        builder: (context) => const WelcomeScreen(),
       ),
     );
   }

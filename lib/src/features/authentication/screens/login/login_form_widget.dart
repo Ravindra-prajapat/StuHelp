@@ -1,4 +1,5 @@
-import 'package:application1/src/features/core/screens/dashboard/footer_navigation.dart';
+import 'package:application1/src/features/authentication/screens/forget_password/forget_password_mail/forget_password_mail.dart';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -6,98 +7,101 @@ import 'package:get/get.dart';
 import '../../../../constants/sizes.dart';
 import '../../../../constants/text_strings.dart';
 import '../../controllers/login_controller.dart';
-import '../forget_password/forget_password_options/forget_password_model_bottom_sheet.dart';
 
 class LoginForm extends StatelessWidget {
   const LoginForm({
     Key? key,
   }) : super(key: key);
 
-  static final GlobalKey<FormState> _formKey = GlobalKey<FormState>(); //
+  static final GlobalKey<FormState> _formKey =
+      GlobalKey<FormState>(); // Update the GlobalKey
+
+  String? validateEmail(String? value) {
+    if (value == null || value.isEmpty) {
+      return 'Please enter your email';
+    }
+    if (!GetUtils.isEmail(value)) {
+      return 'Please enter a valid email';
+    }
+    return null;
+  }
+
+  String? validatePassword(String? value) {
+    if (value == null || value.isEmpty) {
+      return 'Please enter your password';
+    }
+    return null;
+  }
 
   @override
   Widget build(BuildContext context) {
-    final controller = Get.put(LoginController()); //
+    final controller = Get.put(LoginController());
     final email = TextEditingController();
     final password = TextEditingController();
 
     return Form(
-        child: Container(
-      padding: const EdgeInsets.symmetric(vertical: tFormHeight - 10),
       key: _formKey,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          TextFormField(
-            controller: controller.email,
-            decoration: const InputDecoration(
-                prefixIcon: Icon(Icons.person_outline_outlined),
-                labelText: tEmail,
-                hintText: tEmail,
-                border: OutlineInputBorder()),
-          ),
-          const SizedBox(
-            height: tFormHeight - 20,
-          ),
-          TextFormField(
-            controller: controller.password,
-            decoration: const InputDecoration(
-              prefixIcon: Icon(Icons.fingerprint),
-              labelText: tPassword,
-              hintText: tPassword,
-              border: OutlineInputBorder(),
-              suffixIcon: IconButton(
-                  onPressed: null, icon: Icon(Icons.remove_red_eye_sharp)),
+      child: Container(
+        padding: const EdgeInsets.symmetric(vertical: tFormHeight - 10),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            TextFormField(
+              controller: controller.email,
+              decoration: const InputDecoration(
+                label: Text(tEmail),
+                prefixIcon: Icon(Icons.email_outlined),
+                border: OutlineInputBorder(),
+              ),
+              validator: validateEmail,
             ),
-          ),
-          const SizedBox(
-            height: tFormHeight - 20,
-          ),
-          Align(
+            const SizedBox(
+              height: tFormHeight - 20,
+            ),
+            TextFormField(
+              controller: controller.password,
+              obscureText: true, // Apply obscure feature
+              decoration: const InputDecoration(
+                label: Text(tPassword),
+                prefixIcon: Icon(Icons.fingerprint),
+                border: OutlineInputBorder(),
+                suffixIcon: IconButton(
+                  onPressed: null,
+                  icon: Icon(Icons.remove_red_eye_sharp),
+                ),
+              ),
+              validator: validatePassword,
+            ),
+            const SizedBox(
+              height: tFormHeight - 20,
+            ),
+            Align(
               alignment: Alignment.centerRight,
               child: TextButton(
-                  onPressed: () {
-                    ForgetPasswordScreen.buildShowModelBottomSheet(context);
-                  },
-                  child: const Text(tForgetPassword))),
-          SizedBox(
+                onPressed: () {
+                  Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const ForgetPasswordMailScreen()),
+                          );
+                },
+                child: const Text(tForgetPassword),
+              ),
+            ),
+            SizedBox(
               width: double.infinity,
               child: ElevatedButton(
-                  onPressed: () {
-                    // Navigator.push(
-                    //   context,
-                    //   MaterialPageRoute<void>(
-                    //     builder: (BuildContext context) =>
-                    //         const Dashboard(),
-                    //   ),
-                    // );
-                    /*
-                    if (_formKey.currentState!.validate()) {
-                      LoginController.instance.registerUser(
-                          controller.email.text.trim(),
-                          controller.password.text.trim());
-                    }
-                    */
-                    FirebaseAuth.instance
-                        .signInWithEmailAndPassword(
-                            email: controller.email.text.trim(),
-                            password: controller.password.text.trim())
-                        .then((value) {
-                      print("user value  $value");
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute<void>(
-                          builder: (BuildContext context) =>
-                              const FooterNavigation(),
-                        ),
-                      );
-                    }).onError((error, stackTrace) {
-                      print("Error ${error.toString()}");
-                    });
-                  },
-                  child: Text(tLogin.toUpperCase()))),
-        ],
+                onPressed: () {
+                  if (_formKey.currentState!.validate()) {
+                    LoginController.instance.registerUser( );
+                  }
+                },
+                child: Text(tLogin.toUpperCase()),
+              ),
+            ),
+          ],
+        ),
       ),
-    ));
+    );
   }
 }

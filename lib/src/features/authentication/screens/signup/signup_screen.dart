@@ -3,6 +3,7 @@ import 'package:application1/src/constants/colors.dart';
 import 'package:application1/src/constants/image_strings.dart';
 import 'package:application1/src/constants/sizes.dart';
 import 'package:application1/src/constants/text_strings.dart';
+import 'package:application1/src/features/authentication/screens/login/login_screen.dart';
 import 'package:application1/src/features/authentication/screens/signup/widgets/signup_form_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -45,12 +46,19 @@ class SignUpScreen extends StatelessWidget {
                       label: Text(tSignInWithGoogle.toUpperCase()),
                     ),
                   ),
-                  TextButton(onPressed: (){}, child: Text.rich(
+                  TextButton(onPressed: () {
+              Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                    builder: (BuildContext context) => const LoginScreen(),
+                  ));
+            }, child: Text.rich(
                     TextSpan(children: [
                       TextSpan(text: tAlreadyHaveAnAccount,style: Theme.of(context).textTheme.bodyLarge),
                       TextSpan(text: tLogin.toUpperCase()),
                     ])
-                  ),),
+                  ),
+                  ),
                 ],
               ),
             ],

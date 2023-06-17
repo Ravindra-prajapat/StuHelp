@@ -51,10 +51,12 @@ dependencies:
   line_awesome_flutter: ^2.0.0
   permission_handler: ^10.3.0
   firebase_storage: ^11.2.2
-  cloud_firestore: ^4.8.0
+  cloud_firestore: ^4.8.1
   syncfusion_flutter_pdfviewer: 20.4.54
   file_picker: ^4.0.0
   flutter_document_picker: ^5.2.3 
+  firebase_database: ^10.2.3
+  persistent_bottom_nav_bar: ^5.0.2
   #flutter_plugin_pdf_viewer: ^1.0.7
 
 dev_dependencies:
