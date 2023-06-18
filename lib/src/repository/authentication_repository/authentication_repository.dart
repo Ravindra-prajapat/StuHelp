@@ -2,6 +2,7 @@ import "package:application1/src/features/authentication/screens/login/login_scr
 import "package:application1/src/features/authentication/screens/welcome/welcome_screen.dart";
 import "package:application1/src/features/authentication/services/session_mamager.dart";
 import "package:application1/src/features/core/screens/dashboard/dashboard.dart";
+import "package:application1/src/repository/user_repository/email_varification.dart";
 import "package:application1/src/units/utils.dart";
 import "package:firebase_auth/firebase_auth.dart";
 import "package:firebase_database/firebase_database.dart";
@@ -22,6 +23,7 @@ class AuthenticationRepository extends GetxController {
     ever(firebaseUser, _setInitialScreen);
   }
 
+/*
   _setInitialScreen(User? user) {
     if(user == null){
       Get.offAll(() => const WelcomeScreen());
@@ -31,13 +33,29 @@ class AuthenticationRepository extends GetxController {
       Get.offAll(() => const Dashboard());
     }
   }
+  */
 
+  _setInitialScreen(User? user) {
+  if (user == null) {
+    Get.offAll(() => const WelcomeScreen());
+  } else {
+    if (user.emailVerified) {
+      SessionController().userId = user.uid.toString();
+      Get.offAll(() => const Dashboard());
+    } else {
+      Get.offAll(() => const EmailVerificationScreen());
+    }
+  }
+}
+
+/*
   void signup(
       String fullName, String email, String phoneNo, String password) async {
     try {
       _auth
           .createUserWithEmailAndPassword(email: email, password: password)
           .then((value) {
+
         SessionController().userId = value.user!.uid.toString();
         print(
             " user id inside repositry is :::  ${SessionController().userId.toString()}");
@@ -65,6 +83,41 @@ class AuthenticationRepository extends GetxController {
       Utils.toastMessage(e.toString());
     }
   }
+  */
+  void signup(
+  String fullName, String email, String phoneNo, String password) async {
+  try {
+    await _auth.createUserWithEmailAndPassword(email: email, password: password).then((value) {
+      // Send email verification
+      value.user!.sendEmailVerification();
+
+      SessionController().userId = value.user!.uid.toString();
+      print("User ID inside repository is: ${SessionController().userId.toString()}");
+
+      ref.child(value.user!.uid.toString()).set({
+        'uid': value.user!.uid.toString(),
+        'email': value.user!.email.toString(),
+        'onlineStatus': 'noOne',
+        'phone': phoneNo,
+        'userName': fullName,
+        'profile': '',
+      }).then((value) {
+        // Navigate to email verification screen
+        Get.offAll(() => EmailVerificationScreen());
+      }).onError((error, stackTrace) {
+        print(error.toString());
+        Utils.toastMessage(error.toString());
+      });
+    }).onError((error, stackTrace) {
+      print(error.toString());
+      Utils.toastMessage(error.toString());
+    });
+  } catch (e) {
+    print(e.toString());
+    Utils.toastMessage(e.toString());
+  }
+}
+
 
   void loginWithEmailAndPassword(String email, String password) async {
     try {

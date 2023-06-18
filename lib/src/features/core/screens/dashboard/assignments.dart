@@ -303,6 +303,8 @@ class _AssignmentsState extends State<Assignments> {
             const SizedBox(
               height: 30,
             ),
+
+            /*
             Container(
               padding: const EdgeInsets.only(left: 20, right: 20),
               child: Center(
@@ -370,6 +372,7 @@ class _AssignmentsState extends State<Assignments> {
                           child: const Text('Processing...'),
                         )),
             ),
+            */
             const SizedBox(height: 80),
             Container(
               padding: const EdgeInsets.only(left: 20, right: 20),
@@ -379,7 +382,7 @@ class _AssignmentsState extends State<Assignments> {
                 ),
                 child: Text('Open Route',style: Theme.of(context).textTheme.headline4,),
                 onPressed: () {
-        if (collageId != null && branchId != null && semesterId != null && branchId != null && examId != null) {
+        if (collageId != null && branchId != null && semesterId != null && branchId != null ) {
           Navigator.push(
         context,
         MaterialPageRoute(

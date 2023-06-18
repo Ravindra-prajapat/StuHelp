@@ -116,6 +116,7 @@ class SignUpFormWidget extends StatelessWidget {
                 onPressed: () {
                   if (_formKey.currentState!.validate()) {
                     controller.registerUser();
+                  
                   }
                 },
                 child: Text(
@@ -129,3 +130,160 @@ class SignUpFormWidget extends StatelessWidget {
     );
   }
 }
+
+
+
+// updated code from clear text from field after successiful signup
+/*
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:application1/src/features/authentication/controllers/signup_controller.dart';
+import '../../../../../constants/sizes.dart';
+import '../../../../../constants/text_strings.dart';
+
+class SignUpFormWidget extends StatelessWidget {
+  const SignUpFormWidget({
+    Key? key,
+  }) : super(key: key);
+
+  static final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+
+  String? validateFullName(String? value) {
+    if (value == null || value.isEmpty) {
+      return 'Please enter your full name';
+    }
+    return null;
+  }
+
+  String? validateEmail(String? value) {
+    if (value == null || value.isEmpty) {
+      return 'Please enter your email';
+    }
+    if (!GetUtils.isEmail(value)) {
+      return 'Please enter a valid email';
+    }
+    return null;
+  }
+
+  String? validatePhoneNo(String? value) {
+    if (value == null || value.isEmpty) {
+      return 'Please enter your phone number';
+    }
+    // You can add additional phone number validation logic here if needed
+    return null;
+  }
+
+  String? validatePassword(String? value) {
+    if (value == null || value.isEmpty) {
+      return 'Please enter your password';
+    }
+    if (value.length < 6) {
+      return 'Password should be at least 6 characters';
+    }
+    return null;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final controller = Get.put(SignUpController());
+    final fullName = TextEditingController();
+    final email = TextEditingController();
+    final phoneNo = TextEditingController();
+    final password = TextEditingController();
+
+    void _signup() {
+      if (_formKey.currentState!.validate()) {
+        // Perform signup logic here
+        SignUpController.instance.registerUser(fullName.text.trim(),
+            email.text.trim(), phoneNo.text.trim(), password.text.trim());
+
+        // Clear text form fields
+        _setInitialScreen(User? user) {
+          fullName.clear();
+          email.clear();
+          phoneNo.clear();
+          password.clear();
+        }
+      }
+    }
+
+    return Container(
+      padding: const EdgeInsets.symmetric(vertical: tFormHeight - 10),
+      child: Form(
+        key: _formKey,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            TextFormField(
+              controller: fullName,
+              decoration: const InputDecoration(
+                label: Text(tFullName),
+                prefixIcon: Icon(Icons.person_outline_rounded),
+                border: OutlineInputBorder(),
+              ),
+              validator: validateFullName,
+            ),
+            const SizedBox(
+              height: tFormHeight - 20,
+            ),
+            TextFormField(
+              controller: email,
+              decoration: const InputDecoration(
+                label: Text(tEmail),
+                prefixIcon: Icon(Icons.email_outlined),
+                border: OutlineInputBorder(),
+              ),
+              validator: validateEmail,
+            ),
+            const SizedBox(
+              height: tFormHeight - 20,
+            ),
+            TextFormField(
+              controller: phoneNo,
+              decoration: const InputDecoration(
+                label: Text(tPhoneNo),
+                prefixIcon: Icon(Icons.phone_outlined),
+                border: OutlineInputBorder(),
+              ),
+              validator: validatePhoneNo,
+            ),
+            const SizedBox(
+              height: tFormHeight - 20,
+            ),
+            TextFormField(
+              controller: password,
+              obscureText: true, // Apply obscure feature
+              decoration: const InputDecoration(
+                label: Text(tPassword),
+                prefixIcon: Icon(Icons.fingerprint),
+                border: OutlineInputBorder(),
+                suffixIcon: IconButton(
+                  onPressed: null,
+                  icon: Icon(Icons.remove_red_eye_sharp),
+                ),
+              ),
+              validator: validatePassword,
+            ),
+            const SizedBox(
+              height: tFormHeight - 10,
+            ),
+            SizedBox(
+              width: double.infinity,
+              child: ElevatedButton(
+                onPressed: (){
+                  SignUpController.instance.registerUser(fullName.text.trim(),
+            email.text.trim(), phoneNo.text.trim(), password.text.trim());
+                },
+                child: Text(
+                  tSignup.toUpperCase(),
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+*/
