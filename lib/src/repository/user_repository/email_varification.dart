@@ -14,7 +14,7 @@ class EmailVerificationScreen extends StatelessWidget {
       appBar: AppBar(
         backgroundColor:tPrimaryColor,
         elevation: 0,
-        title: const Text('Email Verification'),
+        title:  Center(child: Text('Email Verification     ',style: Theme.of(context).textTheme.headline3,)),
       ),
       body: Center(
         child: Column(

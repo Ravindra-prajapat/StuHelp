@@ -113,6 +113,7 @@ class View extends StatelessWidget {
 
 import 'dart:io';
 import 'dart:math';
+import 'package:application1/src/constants/colors.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter_document_picker/flutter_document_picker.dart';
@@ -161,29 +162,71 @@ class _UploadPdfState extends State<UploadPdf> {
     uploadTask = ref.putData(await file.readAsBytes(), metadata);
 
 
-         TaskSnapshot? snapshot = await uploadTask;
-          url = (await snapshot.ref.getDownloadURL());
-          await FirebaseFirestore.instance
+        //  TaskSnapshot? snapshot = await uploadTask;
+        //   url = (await snapshot.ref.getDownloadURL());
+        //   await FirebaseFirestore.instance
+        //       .collection(
+        //           "Collages/${widget.collageId}/Branches/${widget.branchId}/Semester/${widget.semesterId}/Subjects/${widget.subjectId}/Exams/${widget.examId}/ExamPaper")
+        //       .doc()
+        //       .set(
+        //           {'fileUrl': url, 'num': "ExamPaper-$number"});
+
+        uploadTask = ref.putData(await file.readAsBytes(), metadata);
+
+    TaskSnapshot? snapshot = await uploadTask;
+    url = (await snapshot.ref.getDownloadURL());
+
+    String? assignmentName = await promptPaperName(context);
+    if (assignmentName != null) {
+      await FirebaseFirestore.instance
               .collection(
                   "Collages/${widget.collageId}/Branches/${widget.branchId}/Semester/${widget.semesterId}/Subjects/${widget.subjectId}/Exams/${widget.examId}/ExamPaper")
-              .doc()
-              .set(
-                  {'fileUrl': url, 'num': "ExamPaper-$number"});
+          .doc()
+          .set({'fileUrl': url, 'num': assignmentName});
+    }
 
 
     print("done..!");
     return Future.value(uploadTask);
 
     
+
   }
+
+
+
+  Future<String?> promptPaperName(BuildContext context) async {
+  TextEditingController _textFieldController = TextEditingController();
+  
+  return showDialog<String>(
+    context: context,
+    builder: (BuildContext context) {
+      return AlertDialog(
+        title: const Text('Enter Paper Name and Year like\n MidTerm-2019'),
+        content: TextField(
+          controller: _textFieldController,
+        ),
+        actions: <Widget>[
+          TextButton(
+            onPressed: () {
+              Navigator.of(context).pop(_textFieldController.text);
+            },
+            child: const Text('OK'),
+          ),
+        ],
+      );
+    },
+  );
+}
+
 
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
         appBar: AppBar(
           elevation: 0,
-          backgroundColor: const Color.fromARGB(255, 254, 255, 255),
-          title: const Text("FlutterFire PDF"),
+          backgroundColor: tPrimaryColor,
+          title:  Center(child: Text("Previous Year Papers       ",style: Theme.of(context).textTheme.headline3,)),
         ),
         floatingActionButton: FloatingActionButton(
           backgroundColor: Colors.purple,
@@ -245,7 +288,9 @@ class View extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("PDF View"),
+        elevation: 0,
+          backgroundColor: tPrimaryColor,
+        title: Center(child: Text("Pdf View       ",style: Theme.of(context).textTheme.headline3,)),
       ),
       body: SfPdfViewer.network(
         url,

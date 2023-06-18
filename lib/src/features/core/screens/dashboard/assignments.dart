@@ -1,4 +1,4 @@
-import 'package:application1/src/features/core/screens/upload_pdf/upload_pdf.dart';
+import 'package:application1/src/features/core/screens/upload_assignment/upload_assingment_pdf.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
@@ -386,12 +386,11 @@ class _AssignmentsState extends State<Assignments> {
           Navigator.push(
         context,
         MaterialPageRoute(
-          builder: (context) => UploadPdf(
+          builder: (context) => UploadAssignmentPdf(
             collageId: collageId,
             branchId: branchId,
             semesterId: semesterId,
             subjectId: subjectId,
-            examId: examId,
           ),
         ),
           );
