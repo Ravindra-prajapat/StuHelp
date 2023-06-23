@@ -7,7 +7,7 @@ different courses. It aims to provide a user-friendly solution to the students.
 
 
 ## Features:
-Support Multiple Collages: This app can be used by various college students.
+### Support Multiple Collages:### This app can be used by various college students.
 
 Authentication Feature: The authentication Feature allows users to Register, Login, and Logout. Using this feature we can avoid unrelated data and improve the authenticity of the documents.
 
