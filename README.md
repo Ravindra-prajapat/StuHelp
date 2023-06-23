@@ -7,11 +7,11 @@ different courses. It aims to provide a user-friendly solution to the students.
 
 
 ## Features:
-### Support Multiple Collages:### This app can be used by various college students.
+- **Support Multiple Collages:** Various college students can use this app.
 
-Authentication Feature: The authentication Feature allows users to Register, Login, and Logout. Using this feature we can avoid unrelated data and improve the authenticity of the documents.
+- **Authentication Feature:** The authentication Feature allows users to Register, Login, and Logout. Using this feature we can avoid unrelated data and improve the authenticity of the documents.
 
-User-friendly UI: StuHelp provide a user-friendly UI with dark mode which helps the users for a better experience.
+- **User-friendly UI:** StuHelp provides a user-friendly UI with dark mode which helps the users for a better experience.
 
 ## What StuHelp does?
 StuHelp provides previous year papers and assignments related to different courses to college students.
