@@ -1,20 +1,27 @@
-# application1
+# StuHelp
+This is the GitHub repository for the Flutter-Firebase project "StuHelp."
 
-A new Flutter project.
+## What is StuHelp?
+The StuHelp is a Flutter-Firebase Android app to address the challenges faced by college students related to exams and assignments in
+different courses. It aims to provide a user-friendly solution to the students.
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
+## Features:
+Support Multiple Collages: This app can be used by various college students.
 
-A few resources to get you started if this is your first Flutter project:
+Authentication Feature: The authentication Feature allows users to Register, Login, and Logout. Using this feature we can avoid unrelated data and improve the authenticity of the documents.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+User-friendly UI: StuHelp provide a user-friendly UI with dark mode which helps the users for a better experience.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## What StuHelp does?
+StuHelp provides previous year papers and assignments related to different courses to college students.
 
-# Output
+And also it provides an upload feature using this students can upload their papers and assignments and which are available to all the other students
+
+## Technology Stack:
+Flutter and Dart for frontend
+Firebase for backend
+
+## Demo screenshots of the project
 ![StuHelp](https://github.com/Ravindra-prajapat/StuHelp/assets/113177735/d9de2337-7113-4e89-b0db-6704d76ca70d)
 
