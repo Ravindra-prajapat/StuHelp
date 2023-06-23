@@ -19,8 +19,8 @@ StuHelp provides previous year papers and assignments related to different cours
 And also it provides an upload feature using this students can upload their papers and assignments and which are available to all the other students
 
 ## Technology Stack:
-Flutter and Dart for frontend
-Firebase for backend
+- Flutter and Dart for frontend
+- Firebase for backend
 
 ## Demo screenshots of the project
 ![StuHelp](https://github.com/Ravindra-prajapat/StuHelp/assets/113177735/d9de2337-7113-4e89-b0db-6704d76ca70d)
